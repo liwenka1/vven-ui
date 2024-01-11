@@ -1,1 +1,1 @@
-console.log('未来可期');
+console.log('未来可期')

@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "isolatedModules": false,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
+}
