@@ -13,9 +13,11 @@
     "prettier": "prettier --write \"**/*.{js,ts,json,md}\""
   },
   "dependencies": {
-    "commander": "^11.1.0"
+    "commander": "^11.1.0",
+    "figlet": "^1.7.0"
   },
   "devDependencies": {
+    "@types/figlet": "^1.5.8",
     "@typescript-eslint/eslint-plugin": "^6.18.1",
     "@typescript-eslint/parser": "^6.18.1",
     "eslint": "^8.56.0",
