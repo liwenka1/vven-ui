@@ -14,16 +14,41 @@ const promptForConfig = async () => {
   const options = await prompts([
     {
       type: 'toggle',
-      name: 'typescript',
+      name: 'tsx',
       message: `Would you like to use ${highlight('TypeScript')} (recommended)?`,
       initial: true,
       active: 'yes',
       inactive: 'no'
+    },
+    {
+      type: 'toggle',
+      name: 'rsc',
+      message: `Are you using ${highlight('React Server Components')}?`,
+      initial: true,
+      active: 'yes',
+      inactive: 'no'
+    },
+    {
+      type: 'text',
+      name: 'compontents',
+      message: `Configure the import alias for ${highlight('compontents')}:`,
+      initial: '@/compontents'
+    },
+    {
+      type: 'text',
+      name: 'utils',
+      message: `Configure the import alias for ${highlight('utils')}:`,
+      initial: '@/utils'
     }
   ])
 
   const config = rawConfig.parse({
-    typescript: options.typescript
+    tsx: options.tsx,
+    rsc: options.rsc,
+    aliases: {
+      compontents: options.compontents,
+      utils: options.utils
+    }
   })
 
   const cwd = process.cwd()

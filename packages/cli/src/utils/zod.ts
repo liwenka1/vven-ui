@@ -1,3 +1,12 @@
 import { z } from 'zod'
 
-export const rawConfig = z.object({ typescript: z.boolean() }).strict()
+export const rawConfig = z
+  .object({
+    tsx: z.boolean(),
+    rsc: z.boolean(),
+    aliases: z.object({
+      compontents: z.string(),
+      utils: z.string()
+    })
+  })
+  .strict()
