@@ -3,6 +3,7 @@ import prompts from 'prompts'
 import chalk from 'chalk'
 import fse from 'fs-extra'
 import path from 'path'
+import ora from 'ora'
 
 import { rawConfig } from '@/utils/zod'
 
@@ -56,7 +57,9 @@ const promptForConfig = async () => {
   if (fse.existsSync(targetAir)) {
     console.log(config, cwd)
   } else {
+		const spinner = ora(`Writing components.json...`).start()
     await fse.writeFile(targetAir, JSON.stringify(config, null, 2))
+		spinner.succeed()
   }
 
   return options
