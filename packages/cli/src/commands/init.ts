@@ -1,7 +1,7 @@
 import { Command } from 'commander'
 import prompts from 'prompts'
 import chalk from 'chalk'
-import fse from 'fs-extra'
+import fs from 'fs-extra'
 import path from 'path'
 import ora from 'ora'
 
@@ -54,11 +54,11 @@ const promptForConfig = async () => {
 
   const cwd = process.cwd()
   const targetAir = path.join(cwd, 'components.json')
-  if (fse.existsSync(targetAir)) {
+  if (fs.existsSync(targetAir)) {
     console.log(config, cwd)
   } else {
 		const spinner = ora(`Writing components.json...`).start()
-    await fse.writeFile(targetAir, JSON.stringify(config, null, 2))
+    await fs.writeFile(targetAir, JSON.stringify(config, null, 2))
 		spinner.succeed()
   }
 
